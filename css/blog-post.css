@@ -1,0 +1,62 @@
+/*!
+* Start Bootstrap - Blog Post HTML Template (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.
+*/
+
+body {
+  padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+footer {
+  margin: 50px 0;
+}
+
+
+.navbar-username{
+  font-size: 24px;
+  margin-top: 5px;
+  margin-right: 5px;
+  color: #9d9d9d;
+}
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 25px 15px 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar-nav {
+  margin-top: 10px;
+  padding-bottom: 0px;
+}
+
+
+.navbar-btn.btn-sm {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.form-subject{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.form-subject-border{
+  border: 2px solid #101010;
+  padding: 10px;
+  border-radius: 20px;
+}
+.form-header{
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.avatar-div{
+  margin-top: 15px;
+}

@@ -1,6 +1,8 @@
 <?php
 include_once("../function/connect.php");
-$navbarOption = "";
+include_once("../function/generate-navbar-options.php");
+require_once('../function/generate-feedback.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -60,10 +62,11 @@ $navbarOption = "";
     <!-- Page Content -->
     <div class="container">
       <div class="row">
-        <form class="form-horizontal" role="form" method="post" action="../function/register.php">
+        <?php echo $feedback; ?>
+        <form class="form-horizontal" id="registrationForm" role="form" method="post" action="../function/register.php">
           <div class="form-subject row">
             <div class="col-lg-2">
-              <h3>New Member Registration</h3>
+              <h3>Personal Information</h3>
             </div>
             <div class="col-lg-8 form-subject-border">
               <div class="col-lg-6">
@@ -77,10 +80,6 @@ $navbarOption = "";
               <div class="col-lg-8">
                 <label class="pull-left">Street Address</label>
                 <input type="text" class="form-control" name = "street" id = "street" required>
-              </div>
-              <div class="col-lg-4">
-                <label class="pull-left">Apt/Suite #</label>
-                <input type="text" class="form-control" name = "apt" id = "apt">
               </div>
               <div class="col-lg-5">
                 <label class="pull-left">City</label>
@@ -121,10 +120,15 @@ $navbarOption = "";
                 <label class="pull-left">Confirm Password</label>
                 <input type="password" class="form-control" name = "password2" id = "password2" required>
               </div>
-              <div class="col-lg-4"></div>
-              <div class="col-lg-6 avatar-div">
-                <label class="pull-left">Avatar</label>
-                <input type="file" id="avatar" accept="image/*">
+            </div>
+          </div>
+          <div class="form-subject row">
+            <div class="col-lg-2">
+              <h3>Select Avatar</h3>
+            </div>
+            <div class="col-lg-2 form-subject-border">
+              <div class="col-lg-12">
+                <div id="avatar-dropdown"></div>
               </div>
             </div>
           </div>
@@ -132,18 +136,32 @@ $navbarOption = "";
             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
           </div>
         </form>
-
-      </div>
-      <hr>
-      <footer>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>Copyright &copy; Your Website 2014</p>
-          </div>
-        </div>
-      </footer>
     </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Your Website 2014</p>
+        </div>
+      </div>
+    </footer>
+    </div>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/ddslick.min.js"></script>
+  <script src="../js/avatar-data.js"></script>
+  <script type="text/javascript">
+    $('#avatar-dropdown').ddslick({
+      data: avatarData,
+      height: 200,
+      width: 150,
+      onSelected: function(data){
+        $('<input />').attr('type', 'hidden')
+        .attr('name', 'avatar-dropdown')
+        .attr('value', data.selectedData.value)
+        .appendTo('#registrationForm');
+      }   
+    });
+  </script>
   </body>
 </html>

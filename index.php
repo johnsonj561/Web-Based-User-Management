@@ -1,37 +1,7 @@
 <?php
 require_once('function/connect.php');
-
-$loggedIn = false;
-/*check to see if logged in and store SESSION variabeles*/
-if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true){
-  $loggedIn = true;
-  $username = $_SESSION['username'];
-  $userID = $_SESSION['userID'];
-}
-
-/*if logged in, set navbar to display username and logout option*/
-if($loggedIn){
-  $navbarOption = "<form class='navbar-form navbar-right' action='function/logout.php' method='post'>
-            <div class='form-group'>
-              <label class='navbar-username'>$username</label>
-            </div>
-            <button type='submit' class='btn btn-default'>Sign Out</button>
-          </form>";
-}
-/*else not logged in, set navbar to display log in options*/
-else{
-  $navbarOption = "<form class='navbar-form navbar-right' action='function/sign-in.php' method='post'>
-            <div class='form-group'>
-              <input type='text' class='form-control input-sm' placeholder='Username' name='username' id='username'/>
-            </div>
-            <div class='form-group'>
-              <input type='password' class='form-control input-sm' placeholder='Password' name='password1' id='password1'/>
-            </div>
-            <button type='submit' class='btn btn-sm btn-primary navbar-btn'>Sign In</button>
-            <a class='btn btn-sm btn-primary navbar-btn' href='registration/'>Register</a>
-          </form>";
-}
-
+require_once('function/generate-navbar-options.php');
+require_once('function/generate-feedback.php');
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +61,7 @@ else{
     <!-- Page Content -->
     <div class="container">
       <div class="row">
+        <?php echo $feedback; ?>
         <!-- Blog Post Content Column -->
         <div class="col-lg-8">
           <!-- Blog Post -->

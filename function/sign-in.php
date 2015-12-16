@@ -32,14 +32,14 @@ else{
     }
 
     else{ //else passwords do not match, return to home page with failed log in feedback
-      echo"<meta http-equiv='refresh' content='0; url=../index.php?login=bad-password'>";
+      echo"<meta http-equiv='refresh' content='0; url=../index.php?login=password-error'>";
     }
 
     mysqli_free_result($result);
   }
   //else username does not exist - return user to home screen
   else{ 
-    echo"<meta http-equiv='refresh' content='0; url=../index.php?login=bad-username'>";
+    echo"<meta http-equiv='refresh' content='0; url=../index.php?login=username-error'>";
   }
 }
 ?>

@@ -1,8 +1,6 @@
 <?php
 require_once('connect.php');
 
-var_dump($_POST);
-
 //flag used to represent successful registration and valid username
 $isValidPassword = false;
 $isValidUsername = false;
@@ -32,12 +30,13 @@ if($isValidUsername && $isValidPassword){
   $firstName = strip_tags($_POST['firstName']);
   $lastName = strip_tags($_POST['lastName']);
   $street = strip_tags($_POST['street']);
-  $apt = strip_tags($_POST['apt']);
   $city = strip_tags($_POST['city']);
   $state = strip_tags($_POST['state']);
   $zip = strip_tags($_POST['zip']);
   $telephone = strip_tags($_POST['telephone']);
   $email = strip_tags($_POST['email']);
+  ///get user's Avatar selection
+  $avatar = strip_tags($_POST['avatar-dropdown']);
 
   //Add entry to Users table
   //We enter all users as standard 'users', Admin users must be entered into DB manually
@@ -60,16 +59,19 @@ if($isValidUsername && $isValidPassword){
             VALUES
             ('$userID', '$firstName', '$lastName', '$street', '$city', '$state', '$zip', '$telephone', '$email');";
   mysqli_query($link, $query);  
+  //Add UserID:AvatarID pair to Avatars table
+  $query = "INSERT INTO Avatars (UserID, AvatarID) values ('$userID', '$avatar');";
+  mysqli_query($link, $query);
 }
 
 
 //create appropriate user message - dependant on registration status 
 if(!$isValidUsername){
-   echo "<meta http-equiv='refresh' content='0; url=../index.php?register=username-error'>";
+   echo "<meta http-equiv='refresh' content='0; url=/registration/?register=username-error'>";
 
 }
 else if(!$isValidPassword){
-   echo "<meta http-equiv='refresh' content='0; url=../index.php?register=password-error'>";
+   echo "<meta http-equiv='refresh' content='0; url=/registration?register=password-error'>";
 }
 else{
   echo "<meta http-equiv='refresh' content='0; url=../index.php?register=success'>";

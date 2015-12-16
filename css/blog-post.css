@@ -12,37 +12,50 @@ footer {
   margin: 50px 0;
 }
 
-
-.navbar-username{
-  font-size: 24px;
-  margin-top: 5px;
-  margin-right: 5px;
-  color: #9d9d9d;
+.user-feedback{
+  font-size: 16px;
+  color: darkred;
+  font-weight: 600;
 }
 
-.navbar-brand {
+.blue{
+  color: blue;
+}
+/***** NAVBAR *****/
+.navbar-username{
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  color: #9d9d9d;
+}
+.navbar-brand{
   float: left;
   height: 50px;
   padding: 25px 15px 15px 15px;
   font-size: 18px;
   line-height: 20px;
 }
-
+.navbar-form{
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
 .navbar-nav {
   margin-top: 10px;
   padding-bottom: 0px;
 }
-
-
 .navbar-btn.btn-sm {
-    margin-top: 10px;
-    margin-bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.avatar-img{
+  margin-right:5px;
 }
 
+/***** REGISTRATION FORM *****/
 .form-group {
-    margin-top: 10px;
+  margin-top: 10px;
 }
-
 .form-subject{
   padding-top: 20px;
   padding-bottom: 20px;
@@ -55,8 +68,4 @@ footer {
 .form-header{
   padding-left: 10px;
   padding-bottom: 10px;
-}
-
-.avatar-div{
-  margin-top: 15px;
 }

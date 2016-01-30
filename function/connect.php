@@ -2,8 +2,8 @@
 //db connection parameters
 $databaseName = "fau"; 
 $databaseHostname = "localhost";
-$username = "pust"; 
-$password = "gateway88";
+$username = "xxxxx"; 
+$password = "xxxxxxxx";
 
 $link = mysqli_connect($databaseHostname, $username, $password, $databaseName);
 
